@@ -90,3 +90,49 @@ nav a{color:var(--text);padding:.25rem .6rem}
 nav a:hover,nav a:focus-visible{background:var(--accent);color:#10130c;outline-offset:0}
 .badge{border-radius:0}
 .foot{background:var(--panel-2);border-top:1px solid var(--olive)}
+
+/* Fondo: banner muy difuminado y oscurecido (para quitarlo, borrar esta regla) */
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(23,26,19,.7),rgba(23,26,19,.92)),url(/bg-banner.jpg) center/cover no-repeat}
+
+/* Identidad y movimiento */
+.brand{display:inline-flex;align-items:center;gap:.5rem}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:40;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+@supports (animation-timeline:scroll()){.progress{animation:grow linear both;animation-timeline:scroll(root)}@keyframes grow{to{transform:scaleX(1)}}}
+nav a[aria-current]{background:var(--accent);color:#10130c}
+.will{opacity:0;transform:translateY(14px);transition:opacity .5s ease var(--d,0ms),transform .5s ease var(--d,0ms)}
+.will.shown{opacity:1;transform:none}
+.win{position:relative;overflow:hidden}
+.win::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .2s;background:radial-gradient(200px circle at var(--mx,50%) var(--my,50%),rgba(167,230,29,.14),transparent 70%)}
+.win:hover::after{opacity:1}
+.project{transition:transform .2s,border-color .2s}
+.project:hover{transform:translateY(-3px);border-color:var(--accent) var(--border) var(--border) var(--accent)}
+.tabs{display:flex;flex-wrap:wrap;gap:2px;padding:.5rem .5rem 0;background:var(--panel-2)}
+.tabs [role=tab]{min-height:44px;padding:.5rem 1rem;font:500 .9rem var(--sans);color:var(--text);background:var(--btn);border:1px solid;border-color:var(--olive) var(--border) transparent var(--olive);cursor:pointer;transition:color .12s,background .12s}
+.tabs [role=tab]:hover{color:var(--accent);background:#1d2117}
+.tabs [aria-selected=true]{background:var(--panel);color:var(--accent);box-shadow:inset 0 3px 0 var(--accent);margin-bottom:-1px}
+
+/* Mini-mapa de navegación */
+.minimap{display:none;position:fixed;right:1rem;top:50%;transform:translateY(-50%);width:160px;z-index:15}
+@media (min-width:1100px) and (min-height:560px) and (hover:hover) and (pointer:fine){.minimap{display:block}}
+@media (min-width:1100px) and (max-width:1449px) and (hover:hover) and (pointer:fine){main,.foot{padding-right:11rem}}
+.minimap .mono{margin:0 0 .25rem}
+.minimap svg{display:block;width:100%;height:auto}
+.mm-route{fill:none;stroke:var(--olive);stroke-width:1.5;stroke-dasharray:3 4}
+.minimap a{cursor:pointer}
+.minimap a:focus-visible{outline:none}
+.minimap rect{fill:#171a13;stroke:var(--olive);stroke-width:1;transition:fill .15s,stroke .15s}
+.minimap text{fill:var(--text);font:10px var(--mono);pointer-events:none}
+.minimap a:hover rect,.minimap a:focus-visible rect{stroke:var(--accent);fill:#1d2117}
+.minimap a:focus-visible rect{stroke-width:2.5}
+.minimap a.on rect{fill:var(--accent);stroke:#fff}
+.minimap a.on text{fill:#10130c;font-weight:700}
+
+/* Plano esquemático de fondo en cada sección (ilustración original) */
+main section{position:relative;isolation:isolate;overflow:hidden}
+main section::before{content:"";position:absolute;z-index:-1;top:0;right:0;width:min(46vw,420px);aspect-ratio:4/3;opacity:.16;pointer-events:none;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' fill='none' stroke='%23889180' stroke-width='2'><path d='M10 10H390V290H10Z'/><path d='M10 120H140M180 120H390'/><path d='M200 10V70M200 110V190M200 230V290'/><path d='M10 200H30M70 200H200'/><path d='M300 120V200M300 240V290'/><path d='M40 60C120 60 120 160 200 160S300 220 360 250' stroke='%23a7e61d' stroke-dasharray='6 8'/><circle cx='360' cy='250' r='6' fill='%23a7e61d' stroke='none'/></svg>") center/contain no-repeat}
+main section:nth-of-type(even)::before{right:auto;left:0;transform:scaleX(-1)}
+
+/* Numeración de zonas en los títulos */
+main{counter-reset:zona}
+.sec-head{counter-increment:zona}
+.sec-head h2::before{content:"zona 0" counter(zona) " · ";content:"zona 0" counter(zona) " · " / "";font:500 .8rem var(--mono);color:var(--accent)}
