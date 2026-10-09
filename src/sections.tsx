@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type KeyboardEvent } from 'react'
 import { Badge, ButtonLink, SectionHeader, WindowPanel } from './ui'
 import {
   profile, facts, used, learning, projects, experience, timeline, education, language,
@@ -61,27 +61,52 @@ export function About() {
   )
 }
 
+const tabs = ['Usado en proyectos', 'Conocimientos', 'IA aplicada'] as const
+
+function StackTabs() {
+  const [i, setI] = useState(0)
+  function onKey(e: KeyboardEvent) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return
+    const n = (i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length
+    setI(n)
+    document.getElementById('tab-' + n)?.focus()
+  }
+  return (
+    <div className="win">
+      <div className="tabs" role="tablist" aria-label="Stack" onKeyDown={onKey}>
+        {tabs.map((t, n) => (
+          <button key={t} type="button" role="tab" id={'tab-' + n} aria-selected={i === n}
+            aria-controls="tabpanel" tabIndex={i === n ? 0 : -1} onClick={() => setI(n)}>{t}</button>
+        ))}
+      </div>
+      <div className="win-body" role="tabpanel" id="tabpanel" aria-labelledby={'tab-' + i}>
+        {i === 0 && (
+          <ul className="plain">
+            {used.map((t) => (
+              <li key={t.name}><strong>{t.name}</strong> <span className="muted">en {t.evidence}</span></li>
+            ))}
+          </ul>
+        )}
+        {i === 1 && (
+          <>
+            <ul className="chips">{learning.map((l) => <li key={l}>{l}</li>)}</ul>
+            <p className="muted small">Sin proyecto propio que lo respalde todavía.</p>
+          </>
+        )}
+        {i === 2 && (
+          <p className="measure">Uso ChatGPT, Claude, Gemini y DeepSeek para explorar alternativas, depurar y documentar. Reviso lo que genero y las decisiones técnicas son mías.</p>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export function Stack() {
   return (
     <section aria-labelledby="stack">
       <div className="wrap">
         <SectionHeader id="stack" title="Stack" intro="Separado por evidencia: lo que usé en proyectos y lo que conozco o estoy aprendiendo." />
-        <div className="two">
-          <WindowPanel title="usado en proyectos">
-            <ul className="plain">
-              {used.map((t) => (
-                <li key={t.name}><strong>{t.name}</strong> <span className="muted">en {t.evidence}</span></li>
-              ))}
-            </ul>
-          </WindowPanel>
-          <WindowPanel title="conocimientos y formación">
-            <ul className="chips">{learning.map((l) => <li key={l}>{l}</li>)}</ul>
-            <p className="muted small">Sin proyecto propio que lo respalde todavía.</p>
-          </WindowPanel>
-        </div>
-        <p className="measure muted">
-          IA aplicada: uso ChatGPT, Claude, Gemini y DeepSeek para explorar alternativas, depurar y documentar. Reviso lo que genero y las decisiones técnicas son mías.
-        </p>
+        <StackTabs />
       </div>
     </section>
   )
