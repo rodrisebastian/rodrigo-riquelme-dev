@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { Badge, ButtonLink, WindowPanel } from './ui'
+import Carousel from './Carousel'
 import type { CaseStudy as Study } from './caseStudies'
 
 export default function CaseStudy({ data }: { data: Study }) {
@@ -10,6 +11,12 @@ export default function CaseStudy({ data }: { data: Study }) {
         <h1 id="cs-title">{data.title}</h1>
         <p className="lead measure">{data.subtitle}</p>
         <p><Badge tone="ok">{data.status}</Badge></p>
+        {data.shots && (
+          <WindowPanel title="capturas">
+            <Carousel shots={data.shots} label={`Capturas de ${data.title}`} />
+            {data.shotsNote && <p className="muted small">{data.shotsNote}</p>}
+          </WindowPanel>
+        )}
         <div className="two">
           <WindowPanel title="ficha.cfg">
             <dl className="cfg">
@@ -29,15 +36,20 @@ export default function CaseStudy({ data }: { data: Study }) {
         </div>
         <div className="grid">
           {data.sections.map((s) => (
-            <WindowPanel key={s.title} title={s.title}>
-              {s.paragraphs?.map((p) => <p key={p}>{p}</p>)}
-              {s.points && <ul>{s.points.map((p) => <li key={p}>{p}</li>)}</ul>}
-            </WindowPanel>
+            <div key={s.title} className={s.code ? 'wide' : undefined}>
+              <WindowPanel title={s.title}>
+                {s.paragraphs?.map((p) => <p key={p}>{p}</p>)}
+                {s.code && <pre className="code"><code>{s.code}</code></pre>}
+                {s.points && <ul>{s.points.map((p) => <li key={p}>{p}</li>)}</ul>}
+              </WindowPanel>
+            </div>
           ))}
         </div>
-        <div className="row">
-          {data.links.map((l) => <ButtonLink key={l.href} href={l.href} external>{l.label}</ButtonLink>)}
-        </div>
+        {data.links.length > 0 && (
+          <div className="row">
+            {data.links.map((l) => <ButtonLink key={l.href} href={l.href} external>{l.label}</ButtonLink>)}
+          </div>
+        )}
       </div>
     </section>
   )
