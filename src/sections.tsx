@@ -1,4 +1,5 @@
 import { useState, type KeyboardEvent } from 'react'
+import Carousel from './Carousel'
 import { Badge, ButtonLink, SectionHeader, WindowPanel } from './ui'
 import {
   profile, facts, used, learning, projects, experience, timeline, education, language,
@@ -120,6 +121,7 @@ function ProjectCard({ p }: { p: Project }) {
         <h3>{p.title}</h3>
         <p className="mono">{p.kind}</p>
         <p>{p.summary}</p>
+                {p.shots && <Carousel shots={p.shots} label={`Capturas de ${p.title}`} />}
         <ul>{p.points.map((x) => <li key={x}>{x}</li>)}</ul>
         {p.stack && (
           <p className="small"><span className="muted">{p.stack.label}: </span>{p.stack.items.join(', ')}</p>

@@ -154,3 +154,16 @@ main{counter-reset:zona}
 .toast-x{min-width:44px;min-height:44px;background:none;border:0;color:var(--text);font:700 1.2rem/1 var(--sans);cursor:pointer}
 .toast-x:hover{color:var(--accent)}
 .toast .row{margin:.5rem 0 0}
+
+/* Notificaciones compactas, abajo a la derecha */
+.toasts{left:auto;right:1rem;bottom:1rem;width:min(250px,calc(100vw - 2rem))}
+.toast .win-bar{padding:.1rem .6rem}
+.toast .win-body{padding:.6rem .75rem;font-size:.85rem;line-height:1.45}
+.toast .win-body p{margin:0 0 .5rem}
+.toast .btn{min-height:36px;padding:.2rem .7rem;font-size:.8rem}
+.toast-x{min-width:36px;min-height:36px}
+
+/* Legibilidad sobre el verde oliva */
+.win-body,.win-body p,.win-body li,.win-body strong,.win-body a,.btn,.tabs [role=tab]{text-shadow:1px 1px 0 rgba(0,0,0,.6)}
+.win .muted,.win .mono{color:#e3e9d9}
+.win .chips li,.win .cfg,.win .cfg *,.code,.code *{text-shadow:none}
