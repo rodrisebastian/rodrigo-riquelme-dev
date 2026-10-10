@@ -136,3 +136,21 @@ main section:nth-of-type(even)::before{right:auto;left:0;transform:scaleX(-1)}
 main{counter-reset:zona}
 .sec-head{counter-increment:zona}
 .sec-head h2::before{content:"zona 0" counter(zona) " · ";content:"zona 0" counter(zona) " · " / "";font:500 .8rem var(--mono);color:var(--accent)}
+
+.cs .two,.cs .grid{margin:1.5rem 0}
+
+/* Carrusel, código y notificaciones */
+.carousel{margin:0 0 .5rem}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;background:#000;border:1px solid;border-color:var(--border) var(--olive) var(--olive) var(--border)}
+.slide{flex:0 0 100%;margin:0;scroll-snap-align:center}
+.slide img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain}
+.slide figcaption{padding:.5rem .75rem;background:var(--bg)}
+.car-ctl{align-items:center;justify-content:center;margin:.75rem 0 0}
+.grid>.wide{grid-column:1/-1}
+.code{margin:1rem 0;padding:.9rem 1rem;overflow-x:auto;background:var(--bg);border:1px solid;border-color:var(--border) var(--olive) var(--olive) var(--border);font:.85rem/1.5 var(--mono);color:var(--accent)}
+.toasts{position:fixed;left:1rem;bottom:1rem;z-index:50;width:min(320px,calc(100vw - 2rem))}
+.toast{animation:toast-in .3s ease both}
+@keyframes toast-in{from{opacity:0;transform:translateY(12px)}}
+.toast-x{min-width:44px;min-height:44px;background:none;border:0;color:var(--text);font:700 1.2rem/1 var(--sans);cursor:pointer}
+.toast-x:hover{color:var(--accent)}
+.toast .row{margin:.5rem 0 0}

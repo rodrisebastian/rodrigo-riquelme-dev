@@ -124,8 +124,9 @@ function ProjectCard({ p }: { p: Project }) {
         {p.stack && (
           <p className="small"><span className="muted">{p.stack.label}: </span>{p.stack.items.join(', ')}</p>
         )}
-        {p.links.length > 0 && (
+        {(p.caseStudy || p.links.length > 0) && (
           <div className="row">
+            {p.caseStudy && <ButtonLink href={p.caseStudy} variant="primary">Caso de estudio</ButtonLink>}
             {p.links.map((l) => <ButtonLink key={l.href} href={l.href} external>{l.label}</ButtonLink>)}
           </div>
         )}

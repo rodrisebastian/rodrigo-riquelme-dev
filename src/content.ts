@@ -1,4 +1,5 @@
 // Todo el contenido del sitio. Regla: nada se afirma sin respaldo.
+import type { Shot } from './Carousel'
 export const profile = {
   name: 'Rodrigo Riquelme',
   role: 'Full Stack Web Developer Jr',
@@ -7,6 +8,7 @@ export const profile = {
     'Desarrollo interfaces web con React y TypeScript en equipos que trabajan con Git, Pull Requests y Jira. Hoy sumo backend con Node.js. Hace 8 años trabajo en cobranzas: sé comunicar, priorizar y entregar bajo presión.',
   email: 'rodrigoriquelme2198@gmail.com',
   github: 'https://github.com/rodrisebastian',
+  instagram: 'https://www.instagram.com/rodrisebastian_/',
   // [VERIFICAR] copiar la URL exacta desde el perfil de LinkedIn (la original lleva tilde)
   linkedin: 'https://www.linkedin.com/in/rodrigosebastiánriquelme',
   cv: '/cv.pdf', // [PENDIENTE] agregar public/cv.pdf (sin teléfono)
@@ -46,10 +48,26 @@ export type Project = {
   points: string[]
   stack?: { label: string; items: string[] }
   links: { label: string; href: string }[]
+  caseStudy?: string
+  shots?: Shot[]
 }
+
+export const syncroShots: Shot[] = [
+  { src: '/img/syncro/syncro-home.webp', w: 856, h: 606, caption: 'Inicio y guía de usuario',
+    alt: 'Página de inicio de Syncro con el título "Tu próximo partido empieza acá" y la guía de usuario en cinco pasos' },
+  { src: '/img/syncro/syncro-camino.webp', w: 837, h: 390, caption: 'Perfil y progreso del jugador',
+    alt: 'Sección "Tu camino deportivo comienza aquí" con una vista previa del perfil del jugador' },
+  { src: '/img/syncro/syncro-partidos.webp', w: 841, h: 531, caption: 'Partidos disponibles',
+    alt: 'Listado de partidos disponibles con filtros laterales y tres tarjetas de partidos' },
+  { src: '/img/syncro/syncro-dashboard.webp', w: 1400, h: 648, caption: 'Dashboard del jugador',
+    alt: 'Dashboard del jugador con el próximo partido, el progreso de nivel y los equipos' },
+]
+
 export const projects: Project[] = [
   {
     id: 'syncro',
+    caseStudy: '/proyectos/syncro',
+    shots: syncroShots,
     title: 'Syncro',
     kind: 'Proyecto formativo escalable · Fundación Pescar · Equipo de 8–9',
     status: 'Frontend completado · backend en incorporación',
@@ -65,7 +83,6 @@ export const projects: Project[] = [
     links: [
       { label: 'Sitio', href: 'https://syncro.dev.ar/home-player' },
       { label: 'Equipo', href: 'https://syncro-hub.vercel.app/' },
-      { label: 'Repositorio', href: 'https://github.com/Syncro-sports/Syncro' },
     ],
   },
   {
