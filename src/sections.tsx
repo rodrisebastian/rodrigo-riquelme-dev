@@ -27,12 +27,15 @@ export function Hero() {
           </p>
         </div>
         <WindowPanel title="perfil.cfg">
-          <dl className="cfg">
-            <dt>rol</dt><dd>Full Stack Web Developer Jr</dd>
-            <dt>foco</dt><dd>Frontend, React + TypeScript</dd>
-            <dt>equipo</dt><dd>Syncro, 8–9 personas</dd>
-            <dt>en curso</dt><dd>Backend de Syncro y NerdAula</dd>
-          </dl>
+          <div className="idcard">
+            <img src="/foto-rodrigo.webp" alt="Retrato de Rodrigo Riquelme" width="132" height="165" />
+            <dl className="cfg">
+              <dt>rol</dt><dd>Full Stack Web Developer Jr</dd>
+              <dt>foco</dt><dd>Frontend, React + TypeScript</dd>
+              <dt>equipo</dt><dd>Syncro, 8–9 personas</dd>
+              <dt>en curso</dt><dd>Backend de Syncro y NerdAula</dd>
+            </dl>
+          </div>
         </WindowPanel>
       </div>
       <ul className="wrap facts">{facts.map((f) => <li key={f}>{f}</li>)}</ul>
