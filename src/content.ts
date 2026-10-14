@@ -63,6 +63,13 @@ export const syncroShots: Shot[] = [
     alt: 'Dashboard del jugador con el próximo partido, el progreso de nivel y los equipos' },
 ]
 
+export const qrimientoShots: Shot[] = [
+  { src: '/img/qrimiento/qrimiento-home.webp', w: 1400, h: 666, caption: 'Landing: inicio con demo en vivo',
+    alt: 'Inicio de QRimiento con el título "Un regalo que se abre con un QR" y un celular que muestra un regalo de ejemplo' },
+  { src: '/img/qrimiento/qrimiento-ocasiones.webp', w: 1400, h: 653, caption: 'Fechas y carrusel de ocasiones',
+    alt: 'Sección de fechas para regalar y carrusel de ocasiones con tarjetas de regalos de ejemplo' },
+]
+
 export const projects: Project[] = [
   {
     id: 'syncro',
@@ -99,6 +106,25 @@ export const projects: Project[] = [
     ],
     stack: { label: 'Stack planificado', items: ['Nuxt', 'Vue', 'NestJS', 'PostgreSQL', 'Prisma', 'Docker'] },
     links: [], // [PENDIENTE] repositorio
+  },
+
+    {
+    id: 'qrimiento',
+    caseStudy: '/proyectos/qrimiento',
+    shots: qrimientoShots,
+    title: 'QRimiento',
+    kind: 'Proyecto personal · repositorio privado, disponible a pedido',
+    status: 'MVP publicado · backend y pagos por construir',
+    tone: 'ok',
+    summary:
+      'Regalos digitales con QR para cualquier ocasión. Landing y experiencia de regalo que diseñé y desarrollé de punta a punta: la persona elige una ocasión, comparte fotos, una carta y una canción, y recibe una página privada que se abre al escanear un QR.',
+    points: [
+      'Lo trabajé solo, de la idea a la publicación: producto, precios, UX/UI y frontend.',
+      'Arquitectura guiada por datos: cada regalo es un JSON, así que sumar una ocasión no requiere tocar componentes.',
+      'Hoy es frontend publicado y en validación con ventas manuales; el backend, los pagos y el editor están en diseño.',
+    ],
+    stack: { label: 'Stack', items: ['React', 'TypeScript', 'Vite', 'CSS', 'Cloudflare (Workers)', 'Fontsource'] },
+    links: [{ label: 'Demo', href: 'https://qrimiento.qrimiento.workers.dev/' }],
   },
 ]
 
