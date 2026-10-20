@@ -32,9 +32,14 @@ export const used: UsedTech[] = [
   { name: 'Git y GitHub', evidence: 'Syncro' },
   { name: 'Jira', evidence: 'Syncro' },
   { name: 'Figma', evidence: 'Syncro' },
+  { name: 'Next.js', evidence: 'El Palacio de las Papas (en desarrollo)' },
+  { name: 'PostgreSQL (Supabase) y Prisma', evidence: 'El Palacio de las Papas (en desarrollo)' },
+  { name: 'Tailwind CSS y shadcn/ui', evidence: 'El Palacio de las Papas (en desarrollo)' },
+  { name: 'Zod, TanStack Query y Zustand', evidence: 'El Palacio de las Papas (en desarrollo)' },
+  { name: 'BetterAuth (autenticación)', evidence: 'El Palacio de las Papas (en desarrollo)' },
 ]
 export const learning = [
-  'AWS (fundamentos)', 'MongoDB', 'Tailwind CSS', 'Bootstrap',
+  'AWS (fundamentos)', 'MongoDB', 'Bootstrap',
   'Python (básico)', 'Java (básico)', 'PHP (básico)', 'Power BI (intermedio)', 'Excel avanzado',
 ]
 
@@ -68,6 +73,11 @@ export const qrimientoShots: Shot[] = [
     alt: 'Inicio de QRimiento con el título "Un regalo que se abre con un QR" y un celular que muestra un regalo de ejemplo' },
   { src: '/img/qrimiento/qrimiento-ocasiones.webp', w: 1400, h: 653, caption: 'Fechas y carrusel de ocasiones',
     alt: 'Sección de fechas para regalar y carrusel de ocasiones con tarjetas de regalos de ejemplo' },
+]
+
+export const palacioShots: Shot[] = [
+  { src: '/img/palacio/palacio-home.webp', w: 1200, h: 603, caption: 'Home de El Palacio de las Papas (negocio ficticio)',
+    alt: 'Inicio del sitio de pedidos El Palacio de las Papas, con el logo, hamburguesas, papas fritas y el lema Coma sin vergüenza' },
 ]
 
 export const projects: Project[] = [
@@ -108,6 +118,24 @@ export const projects: Project[] = [
     links: [], // [PENDIENTE] repositorio
   },
 
+    {
+    id: 'palacio-de-papas',
+    caseStudy: '/proyectos/palacio-de-papas',
+    shots: palacioShots,
+    title: 'El Palacio de las Papas',
+    kind: 'Proyecto personal de demostración · negocio ficticio · repositorio público',
+    status: 'En desarrollo · fases 0 a 5 hechas',
+    tone: 'wip',
+    summary:
+      'App de pedidos online mobile-first para una casa de comidas argentina (negocio ficticio): menú, carrito con precios calculados en el servidor y autenticación con roles. Checkout y panel de administración están en la hoja de ruta.',
+    points: [
+      'Hecho: catálogo con categorías, productos y combos, carrito persistente, registro e inicio de sesión, y base de datos con migraciones y seed.',
+      'El servidor calcula todos los precios y descuentos: el navegador solo guarda ids y cantidades, y toda entrada se valida con Zod.',
+      'En curso: rol de administrador y protección de /admin. Planificado: checkout, perfil del cliente, panel de pedidos y métricas.',
+    ],
+    stack: { label: 'Stack', items: ['Next.js', 'React', 'TypeScript', 'PostgreSQL (Supabase)', 'Prisma', 'Tailwind CSS', 'shadcn/ui', 'Zod', 'TanStack Query', 'Zustand', 'BetterAuth'] },
+    links: [{ label: 'Repositorio', href: 'https://github.com/rodrisebastian/palacio-de-papas' }],
+  },
     {
     id: 'qrimiento',
     caseStudy: '/proyectos/qrimiento',
