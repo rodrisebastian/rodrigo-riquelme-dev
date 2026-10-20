@@ -34,11 +34,13 @@ export default function Carousel({ shots, label }: { shots: Shot[]; label: strin
           </figure>
         ))}
       </div>
-      <div className="row car-ctl">
-        <button type="button" className="btn" onClick={() => go(i - 1)} aria-label="Captura anterior">←</button>
-        <span className="mono" aria-live="polite">{i + 1} / {shots.length}</span>
-        <button type="button" className="btn" onClick={() => go(i + 1)} aria-label="Captura siguiente">→</button>
-      </div>
+      {shots.length > 1 && (
+        <div className="row car-ctl">
+          <button type="button" className="btn" onClick={() => go(i - 1)} aria-label="Captura anterior">←</button>
+          <span className="mono" aria-live="polite">{i + 1} / {shots.length}</span>
+          <button type="button" className="btn" onClick={() => go(i + 1)} aria-label="Captura siguiente">→</button>
+        </div>
+      )}
     </div>
   )
 }
