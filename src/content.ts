@@ -80,6 +80,15 @@ export const palacioShots: Shot[] = [
     alt: 'Inicio del sitio de pedidos El Palacio de las Papas, con el logo, hamburguesas, papas fritas y el lema Coma sin vergüenza' },
 ]
 
+export const ryvixShots: Shot[] = [
+  { src: '/img/ryvix/ryvix-home.webp', w: 1400, h: 667, caption: 'Inicio con demo animada',
+    alt: 'Inicio del sitio de Ryvix con el título «Tu negocio, abierto las 24 hs en internet» y una demo animada de una web y una conversación de WhatsApp' },
+  { src: '/img/ryvix/ryvix-servicios.webp', w: 1400, h: 663, caption: 'Servicios con pestañas',
+    alt: 'Sección de servicios de Ryvix con pestañas (Crear, Rediseñar, Mantener, Software a medida y Portfolios) y el detalle de «Tu web desde cero»' },
+  { src: '/img/ryvix/ryvix-paquetes.webp', w: 1400, h: 757, caption: 'Paquetes y tipos de sitio',
+    alt: 'Sección de paquetes de Ryvix con cuatro opciones (landing, tienda online, ecommerce y mantenimiento) y los tipos de sitio que hace la agencia' },
+]
+
 export const projects: Project[] = [
   {
     id: 'syncro',
@@ -118,6 +127,25 @@ export const projects: Project[] = [
     links: [], // [PENDIENTE] repositorio
   },
 
+    {
+    id: 'ryvix',
+    caseStudy: '/proyectos/ryvix',
+    shots: ryvixShots,
+    title: 'Ryvix · agencia web',
+    kind: 'Agencia de desarrollo web que estoy empezando · sitio institucional',
+    status: 'Sitio publicado · agencia en sus comienzos',
+    tone: 'ok',
+    summary:
+      'Ryvix es una agencia argentina de desarrollo web para comercios, emprendedores y profesionales: páginas, tiendas online, rediseño, mantenimiento y software a medida. Su sitio institucional tiene un objetivo concreto: transmitir confianza y llevar al visitante a escribir por WhatsApp.',
+    points: [
+      'Mi rol: coordinación de proyectos, captación de clientes y frontend, en un equipo multidisciplinario de siete personas.',
+      'Diseñé y desarrollé el sitio como una sola página, pensada primero para el celular, con una demo animada hecha solo con CSS y movimiento propio, sin librerías de animación.',
+      'Sin testimonios ni logos de clientes: todo lo que muestra es verificable.',
+    ],
+    stack: { label: 'Stack', items: ['React 19', 'TypeScript', 'Vite 7', 'CSS Modules', 'Cloudflare'] },
+    links: [{ label: 'Demo del sitio', href: 'https://ryvix-web.qrimiento.workers.dev/' }],
+  },
+  
     {
     id: 'palacio-de-papas',
     caseStudy: '/proyectos/palacio-de-papas',

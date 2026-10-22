@@ -1,4 +1,4 @@
-import { syncroShots, qrimientoShots, palacioShots } from './content'
+import { syncroShots, qrimientoShots, palacioShots, ryvixShots } from './content'
 import type { Shot } from './Carousel'
 
 export type CaseStudy = {
@@ -357,5 +357,77 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
     ],
     links: [{ label: 'Repositorio', href: 'https://github.com/rodrisebastian/palacio-de-papas' }],
+  },
+  ryvix: {
+    title: 'Ryvix',
+    subtitle:
+      'Agencia argentina de desarrollo web que estoy empezando, y su sitio institucional: una página pensada para transmitir confianza y llevar al visitante a escribir por WhatsApp.',
+    status: 'Sitio publicado · agencia en sus comienzos',
+    shots: ryvixShots,
+    shotsNote: 'Capturas del sitio publicado.',
+    facts: [
+      { label: 'tipo', value: 'Agencia propia en sus comienzos · sitio institucional' },
+      { label: 'mi rol', value: 'Coordinación de proyectos, captación de clientes y frontend' },
+      { label: 'equipo', value: 'Siete personas: programación, backend, cloud, diseño UX/UI, community management y área jurídica' },
+      { label: 'estado', value: 'Sitio publicado en Cloudflare' },
+      { label: 'stack', value: 'React 19, TypeScript, Vite 7, CSS Modules, Cloudflare' },
+      { label: 'despliegue', value: 'Continuo desde GitHub: main es producción y develop es la rama de trabajo' },
+    ],
+    contribution: [
+      { area: 'Coordinación de proyectos', detail: 'Seguimiento de cada proyecto de la agencia.' },
+      { area: 'Captación y atención de clientes', detail: 'Primer contacto, presupuesto y comunicación con quienes piden una web.' },
+      { area: 'Frontend', detail: 'Diseño y desarrollo del sitio institucional.' },
+    ],
+    teamNote: 'Ryvix es un equipo de siete personas. La responsabilidad técnica del código está a cargo de otra integrante del equipo.',
+    sections: [
+      {
+        title: 'Qué es Ryvix',
+        paragraphs: [
+          'Ryvix es una agencia argentina de desarrollo web que ayuda a comercios, emprendedores y profesionales de Argentina y Latinoamérica a tener una presencia online clara, rápida y con su propia marca.',
+          'Ofrece creación de páginas web (landing pages, tiendas online y ecommerce), rediseño, mantenimiento mensual, software a medida y portfolios profesionales, además de extras de diseño y contenido como edición de video, flyers y banners.',
+        ],
+      },
+      {
+        title: 'El sitio institucional',
+        paragraphs: [
+          'El sitio es la carta de presentación de la agencia y tiene un objetivo concreto: transmitir confianza y llevar al visitante a escribir por WhatsApp. Lo diseñé y desarrollé como una sola página con anclas, pensada primero para el celular.',
+          'Arranca con el mensaje «Tu negocio, abierto las 24 hs en internet» y una demo animada, hecha solo con CSS, que muestra cómo funciona: una persona entra a una web, toca el botón de presupuesto y la conversación llega por WhatsApp.',
+        ],
+        points: [
+          'Servicios, con pestañas: crear, rediseñar, mantener, software a medida y portfolios.',
+          'Proceso de trabajo en cinco pasos: charla y brief, presupuesto y adelanto, entrega de contenidos, diseño y desarrollo, y publicación y soporte.',
+          'Proyectos con su rol y su estado reales, equipo, paquetes (landing, tienda online, ecommerce y mantenimiento, con presupuesto a medida) y contacto.',
+          'No hay testimonios ni logos de clientes: todo lo que se muestra es verificable.',
+        ],
+      },
+      {
+        title: 'Diseño y movimiento',
+        points: [
+          'Azul profundo y blanco, con degradados suaves, bordes redondeados, mucho espacio en blanco y tipografías Sora y Manrope alojadas en el propio sitio.',
+          'Entrada escalonada del hero, revelado al hacer scroll, un manifiesto cuyas palabras se iluminan según el avance, pestañas con indicador deslizante y carruseles infinitos que se enlentecen al pasar el mouse.',
+          'Todo hecho sin librerías de animación, con hooks propios basados en IntersectionObserver y requestAnimationFrame. Solo se animan transform y opacity, y todo se desactiva para quienes tienen activada la preferencia de reducir movimiento.',
+        ],
+      },
+      {
+        title: 'Decisiones técnicas',
+        points: [
+          'React 19, TypeScript y Vite 7, con CSS Modules y variables globales.',
+          'Todo el contenido vive en un único archivo tipado con interfaces de TypeScript, y las imágenes están en WebP. No hay pedidos a servicios externos.',
+          'HTML semántico, navegación por teclado, foco visible y metadatos SEO. El objetivo de rendimiento es un Lighthouse de 90 o más en móvil.',
+          'Despliegue continuo en Cloudflare desde GitHub, con main como producción y develop como rama de trabajo.',
+        ],
+      },
+      {
+        title: 'Estado actual',
+        paragraphs: ['La agencia está en sus comienzos y el sitio está publicado como demo en Cloudflare.'],
+      },
+      {
+        title: 'Qué demuestra',
+        paragraphs: [
+          'Frontend con React, TypeScript y Vite de punta a punta, con animaciones propias y accesibles, despliegue continuo y foco en un objetivo de negocio claro. También iniciativa y coordinación: poner en marcha un emprendimiento con un equipo multidisciplinario y ocuparse de la captación de clientes y el seguimiento de proyectos.',
+        ],
+      },
+    ],
+    links: [{ label: 'Demo del sitio', href: 'https://ryvix-web.qrimiento.workers.dev/' }],
   },
 }
